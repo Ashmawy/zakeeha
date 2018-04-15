@@ -19,6 +19,8 @@ class Dars(db.Model):
 	start_time = db.Column(db.Text, nullable=False)
 	end_time = db.Column(db.Text, nullable=False)
 	date = db.Column(db.Date, nullable=False)
+	week_day= db.Column(db.Text, nullable=False)
+	weekly_or_monthly= db.Column(db.Text, nullable=False)
 	scholar_name = db.Column(db.Text, db.ForeignKey('scholars.scholar_name'), nullable=False)
 	scholars = db.relationship('Scholar', backref=db.backref('deroos', lazy=True))
 
@@ -47,6 +49,8 @@ class DarsSchema(Schema):
 	start_time = fields.String()
 	end_time = fields.String()
 	date = fields.Date()
+	week_day= fields.String()
+	weekly_or_monthly= fields.String()
 	scholar_name = fields.String()
 
 class ScholarSchema(Schema):
