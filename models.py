@@ -32,6 +32,7 @@ class Scholar(db.Model):
 	sex = db.Column(db.CHAR, nullable=True)
 	email = db.Column(db.Text, nullable=False)
 	website = db.Column(db.Text, nullable=False)
+	bio = db.Column(db.Text, nullable=True)
 
 	def __repr__(self):
 		return '<Scholar %r>' % self.scholar_name
@@ -54,3 +55,4 @@ class ScholarSchema(Schema):
 	sex = fields.String()
 	email = fields.String()
 	website = fields.String()
+	bio = fields.String()
