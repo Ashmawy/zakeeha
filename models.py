@@ -20,7 +20,7 @@ class Dars(db.Model):
 	end_time = db.Column(db.Text, nullable=False)
 	date = db.Column(db.Date, nullable=False)
 	#week_day= db.Column(db.Text, nullable=False)
-	weekly_or_monthly= db.Column(db.Text, nullable=False)
+	weekly_or_monthly= db.Column(db.Text, nullable=True)
 	scholar_name = db.Column(db.Text, db.ForeignKey('scholars.scholar_name'), nullable=False)
 	scholars = db.relationship('Scholar', backref=db.backref('deroos', lazy=True))
 
