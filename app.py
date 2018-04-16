@@ -5,6 +5,8 @@ from models import db, app, Dars, Scholar, ScholarSchema, DarsSchema
 from flask import jsonify
 from sqlalchemy.exc import IntegrityError
 
+app.config['JSON_AS_ASCII'] = False
+
 api = Api(app)
 scholars_schema = ScholarSchema(many=True)
 scholar_schema = ScholarSchema()
@@ -28,10 +30,6 @@ class all_deroos(Resource):
 	def get(self):
 		deroos = Dars.query.all()
 		result = deroos_schema.dump(deroos)
-		for x in result.data:
-			for y in x:
-				if type(x[y]) is str:
-					x[y].encode('utf-8')
 		return jsonify({'deroos': result.data})
 
 class active_deroos(Resource):
