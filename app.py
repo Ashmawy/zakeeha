@@ -1,4 +1,4 @@
- # -*- coding: UTF-8 -*-
+#coding:utf8
 from flask import Flask, render_template
 from flask_restful import Resource, Api, abort
 from models import db, app, Dars, Scholar, ScholarSchema, DarsSchema
