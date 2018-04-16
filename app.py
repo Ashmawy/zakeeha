@@ -28,7 +28,7 @@ class all_deroos(Resource):
 	def get(self):
 		deroos = Dars.query.all()
 		result = deroos_schema.dump(deroos)
-		return jsonify({'deroos': result.data})
+		return jsonify({'deroos': result.data.encode('utf-8')})
 
 class active_deroos(Resource):
 	def get(self):
