@@ -30,7 +30,7 @@ class all_deroos(Resource):
 		result = deroos_schema.dump(deroos)
 		for x in result.data:
 			for y in x:
-				if y != 'is_active':
+				if type(x[y]) is str:
 					x[y].encode('utf-8')
 		return jsonify({'deroos': result.data})
 
