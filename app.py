@@ -30,9 +30,9 @@ class all_deroos(Resource):
 		result = deroos_schema.dump(deroos)
 		for x in result.data:
 			for y in x:
-				print (y)
-				y.encode('utf-8')
-				print (y)
+				print (x[y])
+				x[y].encode('utf-8')
+				print (x[y])
 		return jsonify({'deroos': result.data})
 
 class active_deroos(Resource):
