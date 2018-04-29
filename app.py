@@ -1,8 +1,11 @@
+#coding:utf8
 from flask import Flask, render_template
 from flask_restful import Resource, Api, abort
 from models import db, app, Dars, Scholar, ScholarSchema, DarsSchema
 from flask import jsonify
 from sqlalchemy.exc import IntegrityError
+
+app.config['JSON_AS_ASCII'] = False
 
 api = Api(app)
 scholars_schema = ScholarSchema(many=True)
