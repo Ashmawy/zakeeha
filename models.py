@@ -19,7 +19,6 @@ class Dars(db.Model):
 	start_time = db.Column(db.Text, nullable=False)
 	end_time = db.Column(db.Text, nullable=False)
 	date = db.Column(db.Date, nullable=False)
-	#week_day = db.Column(db.Text, nullable=False)
 	weekly_or_monthly = db.Column(db.Text, nullable=True)
 	scholar_name = db.Column(db.Text, db.ForeignKey('scholars.scholar_name'), nullable=False)
 	scholars = db.relationship('Scholar', backref=db.backref('deroos', lazy=True))
@@ -34,6 +33,7 @@ class Scholar(db.Model):
 	sex = db.Column(db.CHAR, nullable=True)
 	email = db.Column(db.Text, nullable=False)
 	website = db.Column(db.Text, nullable=False)
+	photo_url = db.Column(db.Text, nullable=False)
 	bio = db.Column(db.Text, nullable=True)
 
 	def __repr__(self):
@@ -49,7 +49,6 @@ class DarsSchema(Schema):
 	start_time = fields.String()
 	end_time = fields.String()
 	date = fields.Date()
-	#week_day = fields.String()
 	weekly_or_monthly = fields.String()
 	scholar_name = fields.String()
 
@@ -59,4 +58,5 @@ class ScholarSchema(Schema):
 	sex = fields.String()
 	email = fields.String()
 	website = fields.String()
+	photo_url = fields.String()
 	bio = fields.String()
