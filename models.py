@@ -8,6 +8,15 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
+
+class Books(db.Model):
+	__tablename__ = "books"
+	id = db.Column(db.Integer, primary_key=True)
+	topic = db.Column(db.Text, nullable=True)
+	title = db.Column(db.Text, nullable=False)
+	scholar_name = db.Column(db.Text, nullable=True)
+	link = db.Column(db.Text, nullable=False)
+
 class Dars(db.Model):
 	__tablename__ = "deroos"
 	id = db.Column(db.Integer, primary_key=True)
@@ -39,6 +48,14 @@ class Scholar(db.Model):
 	def __repr__(self):
 		return '<Scholar %r>' % self.scholar_name
 
+class BooksSchema(Schema):
+	id = fields.Int(dump_only=True)
+	topic = fields.String()
+	title = fields.String()
+	scholar_name = fields.String()
+	link = fields.String()
+
+	
 class DarsSchema(Schema):
 	id = fields.Int(dump_only=True)
 	is_active = fields.Bool()
