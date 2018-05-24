@@ -17,6 +17,9 @@ class Books(db.Model):
 	scholar_name = db.Column(db.Text, nullable=True)
 	link = db.Column(db.Text, nullable=False)
 
+	def __repr__(self):
+		return '<Books %r>' % self.title
+
 class Dars(db.Model):
 	__tablename__ = "deroos"
 	id = db.Column(db.Integer, primary_key=True)
