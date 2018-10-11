@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
 
-class Books(db.Model):
+class Book(db.Model):
 	__tablename__ = "books"
 	id = db.Column(db.Integer, primary_key=True)
 	topic = db.Column(db.Text, nullable=True)
@@ -51,7 +51,7 @@ class Scholar(db.Model):
 	def __repr__(self):
 		return '<Scholar %r>' % self.scholar_name
 
-class BooksSchema(Schema):
+class BookSchema(Schema):
 	id = fields.Int(dump_only=True)
 	topic = fields.String()
 	title = fields.String()

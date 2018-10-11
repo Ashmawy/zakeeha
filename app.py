@@ -12,6 +12,8 @@ scholars_schema = ScholarSchema(many=True)
 scholar_schema = ScholarSchema()
 deroos_schema = DarsSchema(many=True)
 dars_schema = DarsSchema()
+books_schema = BookSchema(many=True)
+book_schema = BookSchema()
 
 @app.route('/')
 def home():
