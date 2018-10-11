@@ -80,3 +80,6 @@ class ScholarSchema(Schema):
 	website = fields.String()
 	photo_url = fields.String()
 	bio = fields.String()
+
+with app.app_context():
+    db.create_all()
